@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 import express from "express";
 import logger from "loglevel";
 import dotenv from "dotenv";
+import morgan from "morgan";
+import cors from "cors";
+
+import { getRoutes } from "./routes";
+import { setupCloseOnExit } from "./middlewares/error";
 
 // Load enviroment varibles
 dotenv.config();
@@ -9,8 +14,27 @@ dotenv.config();
 function startServer({ port = process.env.PORT } = {}) {
   const app = express();
 
-  app.get("/home", (req, res) => {
-    res.send("Hello world!");
+  //Midlewares
+  app.use(express.json());
+  app.use(morgan("dev"));
+  app.use(cors());
+
+  //Every route will start with api/v1
+  app.use("/api/v1", getRoutes());
+
+  //Mongoose options
+  const mongo_options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  };
+
+  //Db connections
+  mongoose.connect(process.env.DATABASE_URL, mongo_options, function (error) {
+    if (error) {
+      logger.error(error);
+    }
   });
 
   return new Promise((resolve) => {
@@ -24,6 +48,7 @@ function startServer({ port = process.env.PORT } = {}) {
         });
       };
 
+      setupCloseOnExit(server);
       resolve(server);
     });
   });
