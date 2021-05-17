@@ -11,13 +11,7 @@ const logSchema = new Schema(
       type: String,
       enum: ["GET_ISSUE", "GET_ISSUES"],
     },
-    request: {
-      type: Number,
-    },
-    statusCode: {
-      type: Number,
-    },
-    message: {
+    method: {
       type: String,
     },
   },

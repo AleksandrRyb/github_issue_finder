@@ -18,7 +18,8 @@
     "helmet": "^4.6.0",
     "loglevel": "^1.7.1",
     "mongoose": "^5.12.9",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "octokit": "^1.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
