@@ -1,0 +1,25 @@
+.pagination {
+  margin: 20px 0 20px 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .active-page {
+    padding: 3px 7px 3px 7px;
+    border-radius: 3px;
+    background-color: var(--nav-color);
+
+    a {
+      color: #ffffff;
+    }
+  }
+
+  li {
+    cursor: pointer;
+    margin-right: 15px;
+    a {
+      color: #000000;
+    }
+  }
+}

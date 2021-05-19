@@ -20,6 +20,10 @@
   }
 
   .description {
+    overflow: hidden;
+    max-width: 500px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-left: 35px;
   }
 

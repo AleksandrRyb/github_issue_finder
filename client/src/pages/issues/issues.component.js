@@ -1,25 +1,41 @@
 import React from "react";
-import "./issues.styles.scss";
+import { toast } from "react-toastify";
+import CustomToast, {
+  toastSettings,
+} from "../../components/custom-toast/custom-toast.component";
+
 import { useSelector, useDispatch } from "react-redux";
-import ReactPaginate from "react-paginate";
+
+import "./issues.styles.scss";
 import { getIssues } from "../../redux/issue/issue.actions";
 import IssueItem from "../../components/issue-item/issue-item.component";
+import CustomPagination from "../../components/custom-pagination/custom-pagination.component";
 
 function Issues() {
   const [page, setPage] = React.useState(0);
-  const dispatch = useDispatch();
-  const { issues } = useSelector((state) => state.issue);
+  const { issues, issuesSuccess, issuesRequest, errorMessage } = useSelector(
+    (state) => state.issue
+  );
   const { searchIssues, issuesData } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     document.title = "Issue_Finder | Issues";
-  });
+  }, []);
 
   React.useEffect(() => {
     if (searchIssues) {
       dispatch(getIssues(issuesData));
     }
   }, [searchIssues, issuesData]);
+
+  React.useEffect(() => {
+    if (!errorMessage && issuesSuccess) {
+      toast.success(`You got ${issues.length} results`, toastSettings);
+    } else if (errorMessage && !issuesSuccess) {
+      toast.error(errorMessage);
+    }
+  }, [errorMessage, issuesSuccess, issuesRequest]);
 
   const showIssues = () => {
     return (
@@ -47,14 +63,11 @@ function Issues() {
       <div className="issues-page">
         <ul>{showIssues()}</ul>
       </div>
-      <ReactPaginate
-        nextLabel={null}
-        previousLabel={null}
-        pageRangeDisplayed={3}
-        containerClassName="pagination"
+      <CustomPagination
+        handleChange={handlePageChange}
         pageCount={issues?.length / 10 || null}
-        onPageChange={handlePageChange}
       />
+      <CustomToast />
     </div>
   );
 }

@@ -8,19 +8,4 @@
       list-style: none;
     }
   }
-
-  .pagination {
-    margin: 20px 0 20px 0;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    li {
-      margin-right: 15px;
-      a {
-        color: #000000;
-      }
-    }
-  }
 }

@@ -1,7 +1,10 @@
 import { issueActionTypes as ACTIONS } from "./issue.types";
 
 const initialState = {
-  isFetching: false,
+  issuesRequest: false,
+  issuesSuccess: false,
+  issueRequest: false,
+  issueSuccess: false,
   issues: undefined,
   issue: undefined,
   errorMessage: undefined,
@@ -12,18 +15,22 @@ const issueReducer = (state = initialState, action) => {
     case ACTIONS.ISSUES_REQUEST:
       return {
         ...state,
-        isFetching: true,
+        issuesRequest: true,
+        issuesSuccess: false,
+        errorMessage: undefined,
       };
     case ACTIONS.ISSUES_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        issuesRequest: false,
+        issuesSuccess: true,
         issues: action.payload,
       };
     case ACTIONS.ISSUES_FAILURE:
       return {
         ...state,
-        isFetching: false,
+        issuesRequest: false,
+        issuesSuccess: false,
         errorMessage: action.payload,
       };
     default:

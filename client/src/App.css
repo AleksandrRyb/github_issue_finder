@@ -16,7 +16,7 @@ a {
 .app-wrapper {
   margin: 0 auto;
   max-width: 1300px;
-  min-width: 800px;
+  min-width: 1000px;
 }
 
 .logo {

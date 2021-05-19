@@ -20,7 +20,7 @@ export const getIssues =
     } catch (error) {
       dispatch({
         type: ACTIONS.ISSUES_FAILURE,
-        payload: error.response.message,
+        payload: error.response.data.message,
       });
     }
   };

@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import "./issue-item.styles.scss";
 
@@ -10,7 +11,7 @@ function IssueItem({ avatar, created, title, number }) {
         <span className="description">{title}</span>
       </div>
       <span className="number">
-        #{number} opened on {created}
+        #{number} opened on {moment(created).format("MMM Do YY")}
       </span>
     </li>
   );
