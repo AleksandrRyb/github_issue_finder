@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import Logo from "./assets/images/github.svg";
 import Header from "./components/header/header.component";
-import Issues from "./pages/issues/issues.component";
+import IssuePage from "./pages/issue/issue.component";
+import IssuesPage from "./pages/issues/issues.component";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
       </div>
       <Header />
       <Router>
-        <Route path="/" component={Issues} />
+        <Switch>
+          <Route exact path="/" component={IssuesPage} />
+          <Route path="/:issue_number" component={IssuePage} />
+        </Switch>
       </Router>
     </div>
   );

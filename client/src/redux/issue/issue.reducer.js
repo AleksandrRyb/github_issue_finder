@@ -3,11 +3,11 @@ import { issueActionTypes as ACTIONS } from "./issue.types";
 const initialState = {
   issuesRequest: false,
   issuesSuccess: false,
+  issues: undefined,
+  errorMessage: undefined,
+  issue: undefined,
   issueRequest: false,
   issueSuccess: false,
-  issues: undefined,
-  issue: undefined,
-  errorMessage: undefined,
 };
 
 const issueReducer = (state = initialState, action) => {
@@ -31,6 +31,27 @@ const issueReducer = (state = initialState, action) => {
         ...state,
         issuesRequest: false,
         issuesSuccess: false,
+        errorMessage: action.payload,
+      };
+    case ACTIONS.ISSUE_REQUEST:
+      return {
+        ...state,
+        issueRequest: true,
+        issueSuccess: false,
+        errorMessage: undefined,
+      };
+    case ACTIONS.ISSUE_SUCCESS:
+      return {
+        ...state,
+        issueRequest: false,
+        issueSuccess: true,
+        issue: action.payload,
+      };
+    case ACTIONS.ISSUE_FAILURE:
+      return {
+        ...state,
+        issueRequest: false,
+        issueSuccess: false,
         errorMessage: action.payload,
       };
     default:

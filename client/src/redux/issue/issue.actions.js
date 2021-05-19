@@ -3,9 +3,7 @@ import { issueActionTypes as ACTIONS } from "./issue.types";
 
 const BASE_URL = "http://localhost:3001/api/v1/issue";
 
-export const getIssues =
-  ({ owner, repo }) =>
-  async (dispatch) => {
+export const getIssues = ({ owner, repo }) => async (dispatch) => {
     dispatch({
       type: ACTIONS.ISSUES_REQUEST,
     });
@@ -24,3 +22,22 @@ export const getIssues =
       });
     }
   };
+
+export const getIssue = ({ owner, repo, issue_number }) => async dispatch => {
+   dispatch({
+      type: ACTIONS.ISSUE_REQUEST,
+    });
+
+    try {
+      const response = await axios.get(`${BASE_URL}/${owner}/${repo}/${issue_number}`);
+      dispatch({
+        type: ACTIONS.ISSUE_SUCCESS,
+        payload: response.data.issue.data
+      });
+    } catch (error) {
+      dispatch({
+        type: ACTIONS.ISSUE_FAILURE,
+        payload: error.response,
+      });
+    }
+};

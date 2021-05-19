@@ -3,9 +3,9 @@ import moment from "moment";
 
 import "./issue-item.styles.scss";
 
-function IssueItem({ avatar, created, title, number }) {
+function IssueItem({ avatar, created, title, number, handleClick }) {
   return (
-    <li className="issue-item">
+    <li className="issue-item" onClick={() => handleClick(number)}>
       <div>
         <img className="avatar" src={avatar} alt={`issue number ${number}`} />
         <span className="description">{title}</span>
