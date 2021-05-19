@@ -16,6 +16,7 @@
   .avatar {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
   }
 
   .description {
@@ -23,5 +24,7 @@
   }
 
   .number {
+    font-size: 14px;
+    color: var(--little-text-color);
   }
 }

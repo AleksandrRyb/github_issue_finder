@@ -1,5 +1,4 @@
 import React from "react";
-import avatar from "../../assets/images/avatar.png";
 
 import "./issue-item.styles.scss";
 
@@ -7,7 +6,7 @@ function IssueItem({ avatar, created, title, number }) {
   return (
     <li className="issue-item">
       <div>
-        <img className="avatar" src={avatar} alt="" />
+        <img className="avatar" src={avatar} alt={`issue number ${number}`} />
         <span className="description">{title}</span>
       </div>
       <span className="number">

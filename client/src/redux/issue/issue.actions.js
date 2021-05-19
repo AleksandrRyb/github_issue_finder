@@ -11,7 +11,8 @@ export const getIssues =
     });
 
     try {
-      const response = await axios.get(`${BASE_URL}/${owner}/${repo}/30/1`);
+      const response = await axios.get(`${BASE_URL}/${owner}/${repo}/100/1`);
+
       dispatch({
         type: ACTIONS.ISSUES_SUCCESS,
         payload: response.data.issues.data,
