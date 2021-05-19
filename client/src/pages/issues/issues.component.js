@@ -30,6 +30,7 @@ function IssuesPage() {
     if (searchIssues) {
       dispatch(getIssues(issuesData));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchIssues, issuesData]);
 
   //Observe for data fetching
@@ -39,6 +40,7 @@ function IssuesPage() {
     } else if (errorMessage && !issuesSuccess) {
       toast.error(errorMessage);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessage, issuesSuccess, issuesRequest]);
 
   const handleIssueClick = (number) => {

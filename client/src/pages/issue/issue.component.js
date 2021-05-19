@@ -11,9 +11,9 @@ function IssuePage({ location }) {
 
   React.useEffect(() => {
     dispatch(getIssue(issueParams));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(issue);
   return (
     <div className="issue-page">
       <h1>{issue?.title}</h1>
