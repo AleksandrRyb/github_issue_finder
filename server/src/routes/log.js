@@ -5,7 +5,7 @@ import Log from "../models/log";
 function getLogRoutes() {
   const router = express.Router();
 
-  router.get("/logs/:logId", getLog);
+  router.get("/:logId", getLog);
   router.get("/logs", getLogs);
 
   return router;

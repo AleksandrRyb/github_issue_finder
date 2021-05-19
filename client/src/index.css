@@ -1,0 +1,56 @@
+html {
+  --bg-color: #f6f8fa;
+  --nav-color: #24292e;
+  --border-color: #e1e4e8;
+  --nav-link-color: #ffffff;
+  --text-color: #000000;
+  --little-text-color: rgba(0, 0, 0, 0.3);
+  --font-size: 18px;
+  --h1-font-size: 48px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  padding: 30px 0 30px 0;
+  box-sizing: border-box;
+  font-family: "Barlow", serif;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: local("Barlow"),
+    url(./assets/fonts/Barlow-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-weight: 200;
+  src: local("Barlow"), url(./assets/fonts/Barlow-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-weight: bold;
+  src: local("Barlow"), url(./assets/fonts/Barlow-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Source code pro";
+  font-weight: bold;
+  src: local("Source code pro"),
+    url(./assets/fonts/SourceCodePro-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Source code pro";
+  font-weight: 900;
+  src: local("Source code pro"),
+    url(./assets/fonts/SourceCodePro-Black.ttf) format("truetype");
+}

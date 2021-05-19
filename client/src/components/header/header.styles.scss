@@ -1,0 +1,45 @@
+.header {
+  height: 120px;
+  background-color: var(--nav-color);
+  border-radius: 50px 50px 0 0;
+  padding: 0 40px 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  form {
+    .search-input {
+      height: 30px;
+      margin: 0;
+      padding-left: 7px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.15);
+      }
+
+      &:first-of-type {
+        border-radius: 6px 0 0 6px;
+      }
+
+      &:last-of-type {
+        margin-right: 10px;
+        border-radius: 0 6px 6px 0;
+      }
+    }
+
+    .submit-btn {
+      font-size: 15px;
+      padding: 5px 6.5px 8px 6.5px;
+      border: none;
+      border-radius: 6px;
+
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+export const searchActionTypes = {
+  SEARCH_ISSUES_START: "SEARCH_ISSUES_START",
+  SEARCH_ISSUES_END: "SEARCH_ISSUES_END",
+};
